@@ -5,7 +5,13 @@ const util = require('util');
 
 (async () => {
   const client = redis.createClient({
-    host: 'localhost',
+    host: '192.168.56.54',
+    port: 6379,
+    retry_strategy: () => 1000,
+  });
+  
+  const client2 = redis.createClient({
+    host: 192.168.56.55,
     port: 6379,
     retry_strategy: () => 1000,
   });
@@ -35,7 +41,7 @@ const util = require('util');
 
     const key = 'bookCache';
 
-    const cacheValue = await client.HGET(this.hashKey, key);
+    const cacheValue = await client2.HGET(this.hashKey, key);
 
     if (cacheValue) {
       const doc = JSON.parse(cacheValue);
