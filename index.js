@@ -8,7 +8,7 @@ require('./model/Book');
 const app = express();
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost:27017/Books", {
+mongoose.connect("mongodb://192.168.56.52:27017,192.168.56.53:27017/Books", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
