@@ -1,6 +1,10 @@
-const mongoose = require('mongoose');
-const redis = require('redis');
-const util = require('util');
+// const mongoose = require('mongoose');
+// const redis = require('redis');
+// const util = require('util');
+
+import mongoose from 'mongoose';
+import redis from 'redis';
+import util from 'util';
 
 const client = redis.createClient({
   host: '192.168.56.54',
