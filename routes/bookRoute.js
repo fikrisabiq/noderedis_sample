@@ -15,4 +15,6 @@ router.get('/api/generate', generateData);
 router.post('/api/books', saveBook);
 router.delete('/api/books', deleteBook);
 
-export default router;
+module.exports = {
+  router,
+};

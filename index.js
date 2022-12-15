@@ -1,14 +1,13 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import bookRoute from './routes/bookRoute.js';
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
-import './services/cache.js';
-import './model/Book.js';
+require('./services/cache');
+require('./models/Book');
 
 const app = express();
 app.use(bookRoute);
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 mongoose.connect('mongodb://192.168.56.52:27017,192.168.56.53:27017/Books', {
   useNewUrlParser: true,

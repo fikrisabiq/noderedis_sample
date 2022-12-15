@@ -1,12 +1,16 @@
-import Book from '../model/Book.js';
-import { clearKey } from '../services/cache.js';
-import { faker } from '@faker-js/faker';
+// import Book from '../model/Book.js';
+// import { clearKey } from '../services/cache.js';
+// import { faker } from '@faker-js/faker';
 
-export const getInfo = (req, res) => {
+const mongoose = require('mongoose');
+const { clearKey } = require('../services/cache');
+const faker = require('@faker-js/faker');
+
+const getInfo = (req, res) => {
   res.status('200').end('ServerX');
 };
 
-export const getBooks = async (req, res) => {
+const getBooks = async (req, res) => {
   let books;
   if (req.query.author) {
     books = await Book.find({ author: req.query.author }).cache();
@@ -19,7 +23,7 @@ export const getBooks = async (req, res) => {
   res.status(200).json(books);
 };
 
-export const saveBook = async (req, res) => {
+const saveBook = async (req, res) => {
   const body = JSON.parse(req.body);
   const { title, content, author } = body;
 
@@ -38,7 +42,7 @@ export const saveBook = async (req, res) => {
   }
 };
 
-export const generateData = async (req, res) => {
+const generateData = async (req, res) => {
   const total = req.query.total;
   for (let i = 0; i < total; i++) {
     let judul = faker.hacker.phrase();
@@ -61,7 +65,7 @@ export const generateData = async (req, res) => {
   res.status(200).end('Success generate 100 books!!!');
 };
 
-export const deleteBook = async (req, res) => {
+const deleteBook = async (req, res) => {
   try {
     const deleteduser = await Book.deleteOne({ _id: req.query.id });
     clearKey(Book.collection.collectionName);
@@ -69,4 +73,12 @@ export const deleteBook = async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
+};
+
+module.exports = {
+  getBooks,
+  getInfo,
+  saveBook,
+  deleteBook,
+  generateData,
 };
