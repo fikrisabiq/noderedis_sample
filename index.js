@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 require('./services/cache');
-require('./models/Book');
+require('./model/Book');
 
 const app = express();
 app.use(bookRoute);
