@@ -1,5 +1,5 @@
-const Book = mongoose.model('Book');
-const { clearKey } = require('../services/cache.js');
+import Book from '../model/Book.js';
+import { clearKey } from '../services/cache.js';
 
 export const getInfo = (req, res) => {
   res.status('200').end('ServerX');
