@@ -9,10 +9,10 @@ export const getBooks = async (req, res) => {
   let books;
   if (req.query.author) {
     books = await Book.find({ author: req.query.author }).cache();
+  } else if (req.query.title) {
+    books = await Book.find({ author: req.query.title }).cache();
   } else {
-    books = await Book.find().cache({
-      time: 10,
-    });
+    books = await Book.find().cache();
   }
 
   res.status(200).json(books);

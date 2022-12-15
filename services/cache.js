@@ -20,7 +20,7 @@ import redis from 'redis';
 
   const exec = mongoose.Query.prototype.exec;
 
-  mongoose.Query.prototype.cache = function () {
+  mongoose.Query.prototype.cache = function (options = { time: 60 }) {
     this.useCache = true;
     this.time = 60;
     this.hashKey = JSON.stringify(this.mongooseCollection.name);
