@@ -5,8 +5,11 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bookRoute from './routes/bookRoute.js';
 
-require('./services/cache');
-require('./model/Book');
+// require('./services/cache');
+// require('./model/Book');
+
+import './services/cache';
+import './model/Book.js';
 
 const app = express();
 app.use(bodyParser.json());
