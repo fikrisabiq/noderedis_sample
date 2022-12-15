@@ -55,8 +55,10 @@ import redis from 'redis';
     console.log('Response from MongoDB');
     return result;
   };
+
+  const clearKey = (hashKey) => {
+    client.del(JSON.stringify(hashKey));
+  };
 })();
 
-export const clearKey = (hashKey) => {
-  client.del(JSON.stringify(hashKey));
-};
+export { clearKey };
