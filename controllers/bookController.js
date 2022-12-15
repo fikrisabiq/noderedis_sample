@@ -1,5 +1,6 @@
 import Book from '../model/Book.js';
 import { clearKey } from '../services/cache.js';
+import { faker } from '@faker-js/faker';
 
 export const getInfo = (req, res) => {
   res.status('200').end('ServerX');
@@ -34,6 +35,29 @@ export const saveBook = async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
+};
+
+export const generateData = async (req, res) => {
+  const total = req.query.total;
+  for (let i = 0; i < total; i++) {
+    let judul = faker.hacker.phrase();
+    let isi = faker.lorem.paragraph();
+    let nama = faker.name.fullName;
+
+    const book = new Book({
+      title: judul,
+      content: isi,
+      author: nama,
+    });
+    try {
+      await book.save();
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  }
+  clearKey(Book.collection.collectionName);
+
+  res.status(200).end('Success generate 100 books!!!');
 };
 
 export const deleteBook = async (req, res) => {
