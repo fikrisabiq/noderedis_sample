@@ -13,7 +13,3 @@ router.get('/api/info', getInfo);
 router.get('/api/generate', generateData);
 router.post('/api/books', saveBook);
 router.delete('/api/books', deleteBook);
-
-module.exports = {
-  router,
-};

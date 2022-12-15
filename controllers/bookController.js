@@ -24,8 +24,7 @@ const getBooks = async (req, res) => {
 };
 
 const saveBook = async (req, res) => {
-  const body = JSON.parse(req.body);
-  const { title, content, author } = body;
+  const { title, content, author } = req.body;
 
   const book = new Book({
     title,
