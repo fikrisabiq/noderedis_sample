@@ -4,8 +4,8 @@ const Book = mongoose.model('Book');
 const faker = require('@faker-js/faker');
 
 module.exports = (app) => {
-  app.get('/api/books', async (req, res) => {
-    res.status('200').end('ServerX');
+  app.get('/api/info', async (req, res) => {
+    res.status(200).end('ServerX');
   });
 
   app.get('/api/books', async (req, res) => {
