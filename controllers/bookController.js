@@ -1,5 +1,5 @@
 import Book from '../model/Book.js';
-import { clearKey } from '../services/cache.js';
+import clearKey from '../services/cache.js';
 import { faker } from '@faker-js/faker';
 
 export const getInfo = (req, res) => {
