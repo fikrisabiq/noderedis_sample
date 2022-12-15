@@ -6,7 +6,7 @@
 const { clearKey } = require('../services/cache');
 const faker = require('@faker-js/faker');
 // import Book from '../models/UserModel.js';
-const Book = require('../models/UserModel.js');
+const Book = require('../model/UserModel.js');
 
 const getInfo = (req, res) => {
   res.status('200').end('ServerX');
