@@ -5,6 +5,7 @@
 const mongoose = require('mongoose');
 const { clearKey } = require('../services/cache');
 const faker = require('@faker-js/faker');
+const Book = mongoose.model('Book');
 
 const getInfo = (req, res) => {
   res.status('200').end('ServerX');
