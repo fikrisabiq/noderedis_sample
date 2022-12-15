@@ -19,7 +19,7 @@ console.log('Redis connected');
 
 const exec = mongoose.Query.prototype.exec;
 
-mongoose.Query.prototype.cache = function (options = { time: 60 }) {
+mongoose.Query.prototype.cache = function () {
   this.useCache = true;
   this.time = 60;
   this.hashKey = JSON.stringify(this.mongooseCollection.name);
