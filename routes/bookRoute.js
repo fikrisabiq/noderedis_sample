@@ -1,11 +1,10 @@
 const express = require('express');
-import {
-  getInfo,
-  getBooks,
-  saveBook,
-  deleteBook,
-  generateData,
-} from '../controllers/bookController.js';
+
+const { getInfo } = require('../controllers/bookController.js');
+const { getBooks } = require('../controllers/bookController.js');
+const { saveBook } = require('../controllers/bookController.js');
+const { deleteBook } = require('../controllers/bookController.js');
+const { generateData } = require('../controllers/bookController.js');
 
 const router = express.Router();
 
