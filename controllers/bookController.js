@@ -20,7 +20,8 @@ export const getBooks = async (req, res) => {
 };
 
 export const saveBook = async (req, res) => {
-  const { title, content, author } = req.body;
+  const body = JSON.parse(req.body);
+  const { title, content, author } = body;
 
   const book = new Book({
     title,
