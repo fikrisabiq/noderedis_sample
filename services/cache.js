@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import redis from 'redis';
+const mongoose = require('mongoose');
+const redis = require('redis');
 
 const client = redis.createClient({
   host: '192.168.56.54',
