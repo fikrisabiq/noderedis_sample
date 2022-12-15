@@ -12,7 +12,8 @@ import './services/cache.js';
 import './model/Book.js';
 
 const app = express();
-app.use(bodyParser.json());
+app.use(bookRoute);
+app.use(express.json());
 
 mongoose.connect('mongodb://192.168.56.52:27017,192.168.56.53:27017/Books', {
   useNewUrlParser: true,
