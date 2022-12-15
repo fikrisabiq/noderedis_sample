@@ -11,7 +11,7 @@ const util = require('util');
   });
   
   const client2 = redis.createClient({
-    host: 192.168.56.55,
+    host: '192.168.56.55',
     port: 6379,
     retry_strategy: () => 1000,
   });
