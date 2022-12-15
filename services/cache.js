@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const redis = require('redis');
+import mongoose from 'mongoose';
+import redis from 'redis';
 
 (async () => {
   const client = redis.createClient({
@@ -20,7 +20,7 @@ const redis = require('redis');
 
   const exec = mongoose.Query.prototype.exec;
 
-  mongoose.Query.prototype.cache = function (options = { time: 60 }) {
+  mongoose.Query.prototype.cache = function () {
     this.useCache = true;
     this.time = 60;
     this.hashKey = JSON.stringify(this.mongooseCollection.name);
