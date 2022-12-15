@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import redis from 'redis';
+const mongoose = require('mongoose');
+const redis = require('redis');
 
 (async () => {
   const client = redis.createClient({
