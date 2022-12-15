@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-import bookRoute from './routes/bookRoute';
+import bookRoute from './routes/bookRoute.js';
 
 require('./services/cache');
 require('./model/Book');
