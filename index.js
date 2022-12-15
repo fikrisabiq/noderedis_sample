@@ -1,12 +1,6 @@
-// const express = require('express');
-// const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
 import express from 'express';
 import mongoose from 'mongoose';
 import bookRoute from './routes/bookRoute.js';
-
-// require('./services/cache');
-// require('./model/Book');
 
 import './services/cache.js';
 import './model/Book.js';

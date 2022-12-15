@@ -8,5 +8,4 @@ const bookSchema = new Schema({
   author: String,
 });
 
-// mongoose.model('Book', bookSchema);
 export default mongoose.model('Book', bookSchema);

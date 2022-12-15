@@ -1,10 +1,6 @@
-// const mongoose = require('mongoose');
-// const redis = require('redis');
-// const util = require('util');
-
 import mongoose from 'mongoose';
 import redis from 'redis';
-import util from 'util';
+
 (async () => {
   const client = redis.createClient({
     host: '192.168.56.54',
@@ -22,7 +18,6 @@ import util from 'util';
   await client2.connect();
   console.log('Redis connected');
 
-  client2.HGET = util.promisify(client2.HGET);
   const exec = mongoose.Query.prototype.exec;
 
   mongoose.Query.prototype.cache = function () {
@@ -54,18 +49,14 @@ import util from 'util';
 
     const result = await exec.apply(this, arguments);
     console.log(this.time);
-    client.hset(this.hashKey, key, JSON.stringify(result));
+    client.HSET(this.hashKey, key, JSON.stringify(result));
     client.expire(this.hashKey, this.time);
 
     console.log('Response from MongoDB');
     return result;
   };
 })();
-// module.exports = {
-//   clearKey(hashKey) {
-//     client.del(JSON.stringify(hashKey));
-//   },
-// };
+
 export const clearKey = (hashKey) => {
   client.del(JSON.stringify(hashKey));
 };
