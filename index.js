@@ -12,6 +12,8 @@ mongoose.connect('mongodb://192.168.56.52:27017,192.168.56.53:27017/Books', {
   useUnifiedTopology: true,
 });
 
+require('./routes/bookRoutes')(app);
+
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Listening on port`, PORT);
