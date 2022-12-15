@@ -1,7 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bookRoute from './routes/bookRoute.js';
-import bodyParser from 'body-parser';
 
 import './services/cache.js';
 import './model/Book.js';
@@ -14,10 +13,6 @@ mongoose.connect('mongodb://192.168.56.52:27017,192.168.56.53:27017/Books', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-app.use(bodyParser.json());
-app.use(express.json());
-app.use(bookRoute);
 
 const PORT = 5000;
 app.listen(PORT, () => {
