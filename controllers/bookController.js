@@ -2,10 +2,11 @@
 // import { clearKey } from '../services/cache.js';
 // import { faker } from '@faker-js/faker';
 
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const { clearKey } = require('../services/cache');
 const faker = require('@faker-js/faker');
-const Book = mongoose.model('Book');
+// import Book from '../models/UserModel.js';
+const Book = requrie('../models/UserModel.js');
 
 const getInfo = (req, res) => {
   res.status('200').end('ServerX');
