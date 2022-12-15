@@ -1,12 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const bookRoute = require('./routes/bookRoute');
+const { router } = require('./routes/bookRoute');
 require('./services/cache');
 require('./model/Book');
 
 const app = express();
-app.use(bookRoute);
+app.use(router);
 app.use(bodyParser.json());
 
 mongoose.connect('mongodb://192.168.56.52:27017,192.168.56.53:27017/Books', {
