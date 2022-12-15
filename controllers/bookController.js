@@ -1,5 +1,5 @@
 const Book = mongoose.model('Book');
-const { clearKey } = require('../services/cache');
+const { clearKey } = require('../services/cache.js');
 
 export const getInfo = (req, res) => {
   res.status('200').end('ServerX');
